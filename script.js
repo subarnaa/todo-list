@@ -4,6 +4,8 @@ const dummyData = [
    "Padna Baas",
 ];
 
+localStorage.clear();
+
 if (!JSON.parse(localStorage.getItem("todos"))) {
    localStorage.setItem("todos", JSON.stringify([]));
    localStorage.setItem("status", JSON.stringify([]));

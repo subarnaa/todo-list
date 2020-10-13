@@ -1,0 +1,32 @@
+<html>
+   <head>
+      <title>Todo Basic</title>
+      <link rel="stylesheet" href="style.css" />
+      <script
+         src="https://kit.fontawesome.com/d10916e678.js"
+         crossorigin="anonymous"
+      ></script>
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+   </head>
+   <body onload="createDummyList()">
+      <div class="container">
+         <div class="input-container">
+            <p id="input-text">Have Something Left to do?</p>
+            <div class="add-box">
+               <div class="input-bar">
+                  <input
+                     type="text"
+                     id="input"
+                     placeholder="Type to Add a Task"
+                  />
+               </div>
+               <button id="add-btn">Add</button>
+            </div>
+         </div>
+         <div class="list-container">
+            <ul class="todo-list" id="todo-list"></ul>
+         </div>
+      </div>
+      <script src="script.js"></script>
+   </body>
+</html>

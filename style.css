@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+
+body {
+   margin: 0px;
+   padding: 0px;
+   font-size: 110%;
+   font-family: "Ubuntu", sans-serif;
+   /* background: rgb(129,183,188);
+    background: linear-gradient(90deg, rgba(129,183,188,1) 0%, rgba(216,238,196,1) 76%, rgba(130,181,195,0.9587185215883228) 100%); */
+   background-color: #ffdee9;
+   background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+   background-repeat: no-repeat;
+}
+.container {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   height: 89vh;
+   flex-direction: column;
+   margin-top: 11vh;
+}
+
+.input-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   width: 70vw;
+   padding: 1em;
+   border-radius: 10px;
+   font-family: "Secular One", sans-serif;
+   text-align: right;
+}
+
+.add-box {
+   display: flex;
+   flex-direction: row;
+}
+
+.input-bar {
+   height: 54px;
+   font-size: 16px;
+}
+
+#input {
+   width: 40vw;
+   height: inherit;
+   border: none;
+   border-radius: 10px;
+   margin-right: 4vh;
+   padding: 0px 30px;
+   box-shadow: 4px 3px 4px;
+   font-size: 15px;
+   background-image: url("./type.png");
+   background-repeat: no-repeat;
+   background-size: 1.4em;
+   background-position: left;
+   background-position-x: 5px;
+}
+
+.input-container button {
+   height: inherit;
+   width: 60px;
+   font-size: 18px;
+   border: none;
+   border-radius: 10px;
+   background-color: #a1ffc0;
+   font-family: "Secular One", sans-serif;
+   box-shadow: 4px 3px 4px;
+}
+
+#input-text {
+   font-size: 1.3em;
+   margin-right: 4vh;
+   text-shadow: 1px 1px 1px #757575;
+   align-self: center;
+}
+
+.add-box button:hover {
+   cursor: pointer;
+   background-color: rgb(175, 236, 255);
+   outline: none;
+}
+
+*:focus {
+   outline: transparent;
+}
+
+.input-bar > i {
+   position: absolute;
+   padding: 2.5vh 1.5vh;
+}
+
+ul button {
+   background-color: transparent;
+   border: solid 1px black;
+}
+
+.list-container {
+   width: 70vw;
+   padding: 1em;
+   margin-top: 2vh;
+   box-shadow: 12px 20px 25px 0px;
+   border-radius: 12px;
+}
+
+ul {
+   list-style: none;
+}
+
+.todo-list {
+   width: 65vw;
+   padding: 1vh 2vw;
+}
+
+.item {
+   display: flex;
+   justify-content: space-between;
+   width: 60vw;
+   padding: 1.5vh 2vw;
+   margin-bottom: 2.2vh;
+   border: 1px ridge white;
+   border-radius: 10px;
+}
+
+ul:last-child {
+   margin-bottom: 0;
+}
+
+.control-btn {
+   width: fit-content;
+   margin-right: 1vh;
+   font-size: 2.5vh;
+   padding: 6px 8px;
+   border-radius: 8px;
+}
+
+.control-btn:hover {
+   cursor: pointer;
+}
+
+.delete-btn {
+   color: red;
+   border-color: red;
+}
+
+@media screen and (max-width: 800px) {
+   /* This changes the properties of the Model element so as to fit the screen if the 
+    width of the screen is less than 800px. */
+
+   .input-container {
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+   }
+}

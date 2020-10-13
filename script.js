@@ -4,8 +4,6 @@ const dummyData = [
    "Padna Baas",
 ];
 
-// localStorage.clear();
-
 if (!JSON.parse(localStorage.getItem("todos"))) {
    localStorage.setItem("todos", JSON.stringify([]));
    localStorage.setItem("status", JSON.stringify([]));
@@ -69,8 +67,6 @@ function createDummyList() {
    if (list.length !== 0) {
       createList();
    } else {
-      console.log(list.length);
-      console.log("dummy data load bhayo hai");
       dummyData.map((item, index) => {
          const todos = JSON.parse(localStorage.getItem("todos"));
          const status = JSON.parse(localStorage.getItem("status"));
@@ -102,7 +98,6 @@ function onAdd() {
    const inputText = input.value;
    const length = JSON.parse(localStorage.getItem("todos")).length;
    const llength = JSON.parse(localStorage.getItem("status")).length;
-   console.log(length + " " + llength);
 
    if (inputText) {
       createElement(inputText, length);
@@ -131,13 +126,11 @@ function onDelete(event, index) {
       btnPressed = parent.parentElement.parentElement.getAttribute("id");
    }
 
-   console.log("parent id:" + btnPressed);
-
    document.getElementById(btnPressed).remove();
    const updateList = JSON.parse(localStorage.getItem("todos"));
    const updateStatus = JSON.parse(localStorage.getItem("status"));
    updateList.splice(btnPressed, 1);
-   updateStatus.splice(index, 1);
+   updateStatus.splice(index - 1, 1);
    localStorage.setItem("todos", JSON.stringify(updateList));
    localStorage.setItem("status", JSON.stringify(updateStatus));
 }
@@ -150,18 +143,12 @@ function onToggle(event) {
    if (event.target.nodeName === "BUTTON") {
       btnPressed = parent.parentElement.getAttribute("id");
       iTag = event.target.firstElementChild;
-      console.log(iTag);
       changeToggleClass(iTag, btnPressed);
-      console.log("if maaaa");
    } else {
       btnPressed = parent.parentElement.parentElement.getAttribute("id");
       iTag = event.target;
-      console.log(iTag);
       changeToggleClass(iTag, btnPressed);
-      console.log("else maaa");
    }
-
-   console.log("parent id:" + btnPressed);
 }
 
 function changeToggleClass(tag, index) {
@@ -188,14 +175,11 @@ function assignToogleStatus(item, index) {
    const off = "fa-toggle-off";
 
    const toggleStatus = JSON.parse(localStorage.getItem("status"))[index];
-   console.log("yeta bhitra ni chaliracha");
 
    if (toggleStatus) {
-      console.log("if ma ni chaliracha");
       i.classList.add(on);
       i.classList.remove(off);
    } else {
-      console.log("else ma ni chaliracha");
       i.classList.add(off);
       i.classList.remove(on);
    }
@@ -206,6 +190,5 @@ function addToggleStatus() {
    for (i = 0; i < elem.childElementCount; i++) {
       const child = elem.childNodes[i];
       assignToogleStatus(child, i);
-      console.log("yeta samma chaliracha");
    }
 }

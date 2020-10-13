@@ -9,7 +9,7 @@ if (!JSON.parse(localStorage.getItem("todos"))) {
    localStorage.setItem("status", JSON.stringify([]));
 }
 
-function createElement(text, index) {
+function createElement(text, index, toLocalStorage) {
    const todoList = document.getElementById("todo-list");
 
    const newTask = document.createElement("li");
@@ -50,6 +50,12 @@ function createElement(text, index) {
    newTask.appendChild(buttonsDiv);
    todoList.appendChild(newTask);
 
+   if (toLocalStorage) {
+      addToLocalStorage(index, text);
+   }
+}
+
+function addToLocalStorage(index, text) {
    if (JSON.parse(localStorage.getItem("todos"))[index] === text) {
       return;
    } else {
@@ -86,7 +92,7 @@ function createList() {
    let item = "";
    for (i = 0; i < length; i++) {
       item = todos[i];
-      createElement(item, i);
+      createElement(item, i, true);
    }
 }
 
@@ -100,7 +106,7 @@ function onAdd() {
    const llength = JSON.parse(localStorage.getItem("status")).length;
 
    if (inputText) {
-      createElement(inputText, length);
+      createElement(inputText, length, true);
    } else {
       alert("No input!!");
    }
@@ -192,3 +198,53 @@ function addToggleStatus() {
       assignToogleStatus(child, i);
    }
 }
+
+function showCompleted() {
+   const item = document.getElementById("todo-list");
+   const firstChild = item.childNodes;
+
+   for (i = 0; i < firstChild.length; i++) {
+      const secondChild = firstChild[i].firstElementChild;
+      const thirdChild = secondChild.firstElementChild;
+      const iTag = thirdChild.firstElementChild;
+
+      if (iTag.classList.contains("fa-toggle-off")) {
+         firstChild[i].style.display = "none";
+      } else {
+         firstChild[i].style.display = "flex";
+      }
+   }
+}
+
+const showCompletedBtn = document.getElementById("showCompleted-btn");
+showCompletedBtn.addEventListener("click", showCompleted);
+
+function showIncomplete() {
+   const item = document.getElementById("todo-list");
+   const firstChild = item.childNodes;
+
+   for (i = 0; i < firstChild.length; i++) {
+      const secondChild = firstChild[i].firstElementChild;
+      const thirdChild = secondChild.firstElementChild;
+      const iTag = thirdChild.firstElementChild;
+      if (iTag.classList.contains("fa-toggle-on")) {
+         firstChild[i].style.display = "none";
+      } else {
+         firstChild[i].style.display = "flex";
+      }
+   }
+}
+
+const ShowIncompleteBtn = document.getElementById("showIncomplete-btn");
+ShowIncompleteBtn.addEventListener("click", showIncomplete);
+
+function showAll() {
+   const list = document.getElementById("todo-list").childNodes;
+
+   for (i = 0; i < list.length; i++) {
+      list[i].style.display = "flex";
+   }
+}
+
+const showAllBtn = document.getElementById("showAll-btn");
+showAllBtn.addEventListener("click", showAll);

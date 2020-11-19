@@ -162,11 +162,13 @@ function changeToggleClass(tag, index) {
 
    if (tag.classList.contains("fa-toggle-off")) {
       tag.classList.add("fa-toggle-on");
+      tag.parentElement.classList.add("completed");
       tag.classList.remove("fa-toggle-off");
       status[Number(index)] = true;
    } else {
       tag.classList.add("fa-toggle-off");
       tag.classList.remove("fa-toggle-on");
+      tag.parentElement.classList.remove("completed");
       status[Number(index)] = false;
    }
 
@@ -184,6 +186,7 @@ function assignToogleStatus(item, index) {
 
    if (toggleStatus) {
       i.classList.add(on);
+      i.parentElement.classList.add("completed");
       i.classList.remove(off);
    } else {
       i.classList.add(off);

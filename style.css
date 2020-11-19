@@ -50,7 +50,7 @@ body {
    border-radius: 10px;
    margin-right: 4vh;
    padding: 0px 30px;
-   box-shadow: 4px 3px 4px;
+   box-shadow: 6px 4px 6px rgb(0, 0, 0, 0.45);
    font-size: 15px;
    background-image: url("./type.png");
    background-repeat: no-repeat;
@@ -67,7 +67,7 @@ body {
    border-radius: 10px;
    background-color: lightgreen;
    font-family: "Secular One", sans-serif;
-   box-shadow: 4px 3px 4px;
+   box-shadow: 6px 4px 6px rgb(0, 0, 0, 0.65);
 }
 
 #input-text {
@@ -102,7 +102,10 @@ ul button {
    width: 70vw;
    padding: 1em;
    margin-top: 2vh;
-   box-shadow: 12px 20px 25px 0px;
+   -webkit-box-shadow: 19px 13px 21px 0px rgba(0, 0, 0, 0.65),
+      0px 50px 50px -16px rgba(0, 0, 0, 0.38);
+   box-shadow: 19px 13px 21px 0px rgba(0, 0, 0, 0.65),
+      0px 50px 50px -16px rgba(0, 0, 0, 0.38);
    border-radius: 12px;
 }
 
@@ -146,6 +149,11 @@ ul:last-child {
    border-color: red;
 }
 
+.toggle-btn.completed {
+   border-color: rgb(3, 209, 3);
+   color: rgb(28, 189, 28);
+}
+
 .btn-container {
    display: flex;
    justify-content: space-between;
@@ -160,7 +168,7 @@ ul:last-child {
    border-radius: 10px;
    background-color: #a1ffc0;
    font-family: "Secular One", sans-serif;
-   box-shadow: 4px 3px 4px;
+   box-shadow: 6px 4px 6px rgb(0, 0, 0, 0.65);
 }
 
 @media screen and (max-width: 800px) {
